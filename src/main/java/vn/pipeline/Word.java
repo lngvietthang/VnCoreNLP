@@ -56,8 +56,19 @@ public class Word {
                 this.getForm() + "\t" +
                 (this.getPosTag() == null?"_": this.getPosTag()) +  "\t" +
                 (this.getNerLabel() == null?"_": this.getNerLabel()) + "\t" +
-                (this.getHead() == -1?"_\t": this.getHead()) + "\t" +
+                (this.getHead() == -1?"_": this.getHead()) + "\t" +
                 (this.getDepLabel() == null?"_": this.getDepLabel());
+    }
+
+    public String toString(String format) {
+        if (format.equals("column")) {
+            return this.toString();
+        }
+        return this.getForm() +
+                (this.getPosTag() == null?"":"/"+this.getPosTag()) +
+                (this.getNerLabel() == null?"":"/"+this.getNerLabel()) +
+                (this.getHead() == -1?"":"/"+this.getHead()) +
+                (this.getDepLabel() == null?"":"/"+this.getDepLabel());
     }
 
     public String getForm() {

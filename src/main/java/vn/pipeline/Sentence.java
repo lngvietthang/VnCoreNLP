@@ -83,6 +83,18 @@ public class Sentence {
         return sb.toString().trim();
     }
 
+    public String toString(String format) {
+        if (format.equals("column")) {
+            return this.toString();
+        }
+
+        StringBuffer sb = new StringBuffer();
+        for (Word word : words) {
+            sb.append(word.toString(format) + " ");
+        }
+        return sb.toString().trim();
+    }
+
     public String getRawSentence() {
         return rawSentence;
     }

@@ -50,6 +50,20 @@ public class Annotation {
         return sb.toString();
     }
 
+    public String toString(String format) {
+        if (format.equals("column")) {
+            return this.toString();
+        }
+
+        StringBuffer sb = new StringBuffer();
+        if(sentences != null)
+            for(Sentence sentence : sentences) {
+                sb.append(sentence.toString(format) + "\n");
+            }
+        else return rawText;
+        return sb.toString();
+    }
+
     // Word count
     public HashMap<String, Integer> wordCount() {
         HashMap<String, Integer> output = new HashMap<>();
