@@ -196,11 +196,10 @@ public class VnCoreNLP {
 
     public static void main(String[] args) {
         CommandLineParser commandLineParser = new DefaultParser();
-        CommandLine commandLine;
         Options options = buildOptions();
 
         try {
-            commandLine = commandLineParser.parse(options, args);
+            CommandLine commandLine = commandLineParser.parse(options, args);
 
             if (args.length == 0 || commandLine.hasOption("help")) {
                 printUsage(options);
@@ -259,12 +258,11 @@ public class VnCoreNLP {
             }
         }
         catch (ParseException pe) {
-            LOGGER.error(pe.getMessage(), pe);
+            System.out.println(pe.getMessage());
             printUsage(options);
             System.exit(1);
         }
         catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
             System.exit(1);
         }
     }
