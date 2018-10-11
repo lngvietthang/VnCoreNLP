@@ -1,3 +1,31 @@
+# My Changes:
+## Using VnCoreNLP with file input from command line
+
+    //To perform word segmentation, POS tagging, NER and then dependency parsing with inline output format (default)
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -fin input.txt -fout output.txt
+    //To perform word segmentation, POS tagging, NER and then dependency parsing with column output format (as original version)
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format column -fin input.txt -fout output.txt
+    // To perform word segmentation, POS tagging and then NER with different output formats
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format column -fin input.txt -fout output.txt -annotators wseg,pos,ner
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format inline -fin input.txt -fout output.txt -annotators wseg,pos,ner
+    // To perform word segmentation and then POS tagging with different output formats
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -fin input.txt -fout output.txt -annotators wseg,pos
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format column -fin input.txt -fout output.txt -annotators wseg,pos
+    // To perform word segmentation
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -fin input.txt -fout output.txt -annotators wseg
+
+## Using VnCoreNLP with directory input from command line
+    //To perform word segmentation, POS tagging, NER and then dependency parsing with inline output format (default)
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -din sample-input-dir -dout output-dir
+    //To perform word segmentation, POS tagging, NER and then dependency parsing with column output format (as original version)
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format column -din sample-input-dir -dout output-dir
+    // To perform word segmentation, POS tagging and then NER with different output formats
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format column -din sample-input-dir -dout output-dir -annotators wseg,pos,ner
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -format inline -din sample-input-dir -dout output-dir -annotators wseg,pos,ner
+    // You can skip output directory, each output file has name with postfix '.out' in the same directory as input file
+    $ java -Xmx2g -jar VnCoreNLP-1.0.1.jar -din sample-input-dir
+
+
 # VnCoreNLP: A Vietnamese natural language processing toolkit
 
 VnCoreNLP is a Java NLP annotation pipeline for Vietnamese, providing rich linguistic annotations through key NLP components of **word segmentation**, **POS tagging**, **named entity recognition** (NER) and **dependency parsing**:
